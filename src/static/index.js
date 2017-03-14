@@ -8,4 +8,4 @@ require( '../../node_modules/bootstrap-sass/assets/javascripts/bootstrap.js' ); 
 var Elm = require( '../elm/Main' );
 Elm.Main.embed( document.getElementById( 'main' ) );
 
-var Elm = require( '../static/speak.js');
+window.toggleStartStop = require( '../static/speak.js' );

@@ -23,7 +23,7 @@ subscriptions model =
 
 main : Program Never Model Msg
 main =
-    program
+    Html.program
         { init = init
         , view = view
         , update = update

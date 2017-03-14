@@ -17,7 +17,7 @@ function reset() {
   button.innerHTML = "Record Dream";
 }
 
-function toggleStartStop() {
+ function toggleStartStop(){
   if (recognizing) {
     recognition.stop();
     reset();
@@ -27,3 +27,5 @@ function toggleStartStop() {
     button.innerHTML = "Click to Stop";
   }
 }
+
+module.exports = toggleStartStop
