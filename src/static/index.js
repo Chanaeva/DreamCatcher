@@ -6,6 +6,20 @@ require( '../../node_modules/bootstrap-sass/assets/javascripts/bootstrap.js' ); 
 // inject bundled Elm app into div#main
 
 var Elm = require( '../elm/Main' );
-Elm.Main.embed( document.getElementById( 'main' ) );
+var app = Elm.Main.embed( document.getElementById( 'main' ) );
 
-window.toggleStartStop = require( '../static/speak.js' );
+
+// window.toggleStartStop = require( '../static/speak.js' );
+
+var div = document.getElementById('speak');
+var speak = Elm.embed(Elm.Speak, div);
+
+app.ports.speak.subscribe(function(string) {
+        var speechToText = recognizing(string);
+        app.ports.suggestions.send(string);
+    });
+
+    function recognizing(string) {
+        // have a real implementation!
+        return [];
+    }

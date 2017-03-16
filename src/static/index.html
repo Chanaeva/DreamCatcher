@@ -6,17 +6,21 @@
     <title>DreamCatcher</title>
     <meta name="description" content="Dream App"/>
     <meta name="author" content="Chana Reynolds"/>
+    <script src="http://d3js.org/d3.v3.min.js"></script>
+    <script src="d3.layout.cloud.js"></script>
     <script type="text/javascript" src="speak.js"></script>
     <link rel="shortcut icon" type="image/x-icon" href="favicon.ico"/>
     <link href="https://fonts.googleapis.com/css?family=Amatic+SC" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+
   </head>
  </script>
   <body>
     <div id="main"></div>
-    <div>
-    <textarea id="textarea" rows=10 cols=80></textarea>
-    <button class="col" id="button" onclick="toggleStartStop()"></button>
+  <div>
+   <div id="speak"></div>
+    <!-- <textarea id="textarea" rows=10 cols=80></textarea>
+    <button class="col" id="button" onclick="toggleStartStop()"></button> -->
   </div>
   </body>
 </html>

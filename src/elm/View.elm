@@ -6,20 +6,23 @@ import Msgs exposing (Msg)
 import Models exposing (Model)
 
 
+textBox : Html Msg
+textBox =
+    textarea [ id "textarea" ]
+        [ button [] []
+        ]
+
+
 viewNav : String -> Html Msg
 viewNav nav =
     header []
         [ ul [ class "nav nav-tabs" ]
-            [ li [ class "active", attribute "role" "presentation" ]
-                [ a [ href "#" ]
-                    [ text "Home" ]
-                ]
-            , li [ attribute "role" "presentation" ]
+            [ li [ attribute "role" "presentation" ]
                 [ a [ href "#" ]
                     [ text "Profile" ]
                 ]
             , li [ attribute "role" "presentation" ]
-                [ a [ href "#" ]
+                [ a [ href "./static/d3.html" ]
                     [ text "WordCloud" ]
                 ]
             ]
@@ -38,5 +41,6 @@ view : Model -> Html Msg
 view model =
     div []
         [ viewNav "DreamCatcher"
+        , textBox
         , viewFooter
         ]

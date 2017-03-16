@@ -1,3 +1,5 @@
+var Elm = require('../Elm/Main');
+
 var recognizing;
 var recognition = new webkitSpeechRecognition();
 recognition.continuous = true;
