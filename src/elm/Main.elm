@@ -3,7 +3,11 @@ module Main exposing (..)
 import Html exposing (program)
 import Html exposing (..)
 import Html.Attributes exposing (..)
-import Html.Events exposing (onClick, onInput)
+
+
+-- import Html.Events exposing (onClick)
+
+import Ports exposing (listening, toggleStartStop)
 
 
 --MODEL
@@ -11,20 +15,18 @@ import Html.Events exposing (onClick, onInput)
 
 type alias Model =
     { dream : String
-    , dreamInput : String
     }
 
 
 init : Model
 init =
     { dream = ""
-    , dreamInput = ""
     }
 
 
 subscriptions : Model -> Sub Msg
 subscriptions model =
-    Sub.none
+    Ports.listening RecordDream
 
 
 
@@ -46,46 +48,19 @@ main =
 
 
 type Msg
-    = SetDreamInput String
-    | SaveDream
-    | CancelDream
+    = RecordDream String
 
 
 update : Msg -> Model -> ( Model, Cmd Msg )
 update msg model =
     case msg of
-        SetDreamInput value ->
-            ( { model | dreamInput = value }, Cmd.none )
-
-        SaveDream ->
-            if String.isEmpty model.dreamInput then
-                ( model, Cmd.none )
-            else
-                ( { model | dreamInput = model.dreamInput, dreamInput = "" }, Cmd.none )
-
-        CancelDream ->
-            ( { model | dreamInput = "" }, Cmd.none )
+        RecordDream text ->
+            ( { model | dream = text }, Cmd.none )
 
 
-viewDreamInput : Model -> Html Msg
-viewDreamInput model =
-    div []
-        [ input
-            [ type_ "text"
-            , placeholder "Dream"
-            , value model.dreamInput
-            , autofocus True
-            , onInput SetDreamInput
-            ]
-            []
-        , primaryButton SaveDream "Save"
-        , primaryButton CancelDream "Cancel"
-        ]
-
-
-primaryButton : Msg -> String -> Html Msg
-primaryButton msg name =
-    button [ onClick msg ] [ text name ]
+viewTextInput : String -> Html Msg
+viewTextInput text =
+    input [ type_ "textarea", value text ] []
 
 
 viewNav : String -> Html Msg
@@ -117,9 +92,7 @@ view : Model -> Html Msg
 view model =
     div []
         [ viewNav "DreamCatcher"
-        , viewDreamInput model
-        , div [ class "button-group" ]
-            []
+        , viewTextInput model.dream
         , viewFooter
-        , div [ class "debug" ] [ text (toString model) ]
+          -- , div [ class "debug" ] [ text (toString model) ]
         ]

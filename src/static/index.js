@@ -8,18 +8,24 @@ require( '../../node_modules/bootstrap-sass/assets/javascripts/bootstrap.js' ); 
 var Elm = require( '../elm/Main' );
 var app = Elm.Main.embed( document.getElementById( 'main' ) );
 
+console.log(app);
 
-// window.toggleStartStop = require( '../static/speak.js' );
+var speak = require('../static/speak');
+var toggleStartStop = speak.toggleStartStop
+speak.init(app.ports.listening)
 
-var div = document.getElementById('speak');
-var speak = Elm.embed(Elm.Speak, div);
+console.log(toggleStartStop);
 
-app.ports.speak.subscribe(function(string) {
-        var speechToText = recognizing(string);
-        app.ports.suggestions.send(string);
-    });
+$('button').click(toggleStartStop);
 
-    function recognizing(string) {
-        // have a real implementation!
-        return [];
-    }
+// app.ports.toggleStartStop.subscribe(function (result) {
+//
+//       app.ports.listening.send(result);
+//
+//     });
+
+    // function toggleStartStop(){
+    //
+    //   app.ports.listening.send(result);
+    //
+    // }
