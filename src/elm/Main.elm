@@ -3,10 +3,7 @@ module Main exposing (..)
 import Html exposing (program)
 import Html exposing (..)
 import Html.Attributes exposing (..)
-
-
--- import Html.Events exposing (onClick)
-
+import Html.Events exposing (onInput)
 import Ports exposing (listening, toggleStartStop)
 
 
@@ -60,7 +57,14 @@ update msg model =
 
 viewTextInput : String -> Html Msg
 viewTextInput text =
-    input [ type_ "textarea", value text ] []
+    div [ class "text-center" ]
+        [ input
+            [ type_ "textarea"
+            , value text
+            , autofocus True
+            ]
+            []
+        ]
 
 
 viewNav : String -> Html Msg
@@ -69,7 +73,7 @@ viewNav title =
         [ h1 [ class "text-center" ] [ text title ]
         , ul []
             [ ul [ attribute "role" "presentation" ]
-                [ a [ href "#" ]
+                [ a [ href "./static/signup.html" ]
                     [ text "Profile" ]
                 ]
             , ul [ attribute "role" "presentation" ]
@@ -82,7 +86,7 @@ viewNav title =
 
 viewFooter : Html Msg
 viewFooter =
-    footer [ class "text-center" ]
+    footer [ class "footer text-center" ]
         [ a [ href "https://github.com/Chanaeva" ]
             [ text "Created By Chana Reynolds" ]
         ]
