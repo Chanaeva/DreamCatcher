@@ -42,43 +42,39 @@ $.get(`${API_URL}/api/dreamers`).then(function(response) {
 function createCloud(frequency_list) {
 
 
-    var color = d3.scale.ordinal()
+    var fill = d3.scale.ordinal()
         .domain([0, 1, 2, 3, 4, 5, 6, 10, 15, 20, 100])
         .range(["#FFFFFF", "#fc8d62", "#8da0cb", "#e78ac3", "#a6d854"]);
 
 
+        var layout = d3.layout.cloud()
+            .size([2050, 950])
+            .words(frequency_list)
+            .padding(15)
+            // .rotate(function() { return ~~(Math.random() * 2) * 90; })
+            .font("Impact")
+            .fontSize(function(d) { return d.size; })
+            .on("end", draw);
 
-    d3.layout.cloud()
-        .size([960, 500])
-        .words(frequency_list)
-        .padding(5)
-        .rotate(function() { return ~~(Math.random() * 2) * 90; })
-        .fontSize(function(d) { return d.size; })
-        .on("end", draw)
-        .start();
+        layout.start();
 
-    function draw(words) {
-        d3.select("body").append("svg")
-            .attr("width", 350)
-            .attr("height", 350)
-            .attr("class", "wordcloud")
-            .append("g")
-            .attr("transform", "translate(150,150)")
-            .selectAll("text")
-            .data(words)
-            .enter().append("text")
-            .style("font-size", function(d) {
-                return d.size * 20 + "px";
-            })
-            .style("fill", function(d, i) {
-                return color(i);
-            })
-            .attr("text-anchor", "middle")
-            .attr("transform", function(d) {
+
+        function draw(words) {
+          d3.select("body").append("svg")
+              .attr("width", layout.size()[0])
+              .attr("height", layout.size()[1])
+              .append("g")
+              .attr("transform", "translate(" + layout.size()[0] / 2 + "," + layout.size()[1] / 2 + ")")
+              .selectAll("text")
+              .data(words)
+             .enter().append("text")
+              .style("font-size", function(d) { return d.size * 15 + "px"; })
+              .style("font-family", "Impact")
+              .style("fill", function(d, i) { return fill(i); })
+              .attr("text-anchor", "middle")
+              .attr("transform", function(d) {
                 return "translate(" + [d.x, d.y] + ")rotate(" + d.rotate + ")";
-            })
-            .text(function(d) {
-                return d.text;
-            });
-    }
-}
+              })
+              .text(function(d) { return d.text; });
+        }
+ }

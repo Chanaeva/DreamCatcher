@@ -5,16 +5,16 @@
     <meta name="description" content="Dream App" />
     <meta name="author" content="Chana Reynolds" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
+    <link rel="shortcut icon" type="image/x-icon" href="/static/img/dream.jpg" />
     <link href="https://fonts.googleapis.com/css?family=Amatic+SC" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="/static/styles/style.css">
 </head>
 
-<body>
-  <img src="./img/dream.jpg" alt="dreamcatcher" id="icon" class="img-rounded">
-    <h1>New Dream</h1>
-
-    <div class="row">
+<body class="profile-container">
+    <img src="./img/dream.jpg" alt="dreamcatcher" id="icon" class="img-rounded">
+    <h1 class="text-center">Chana's Dream Journal</h1>
+    <h2>New Dream</h2>
+    <div class="row" id="profileform">
         <div class="col-xs-2">
             <input type="text" class="form-control" placeholder="Dream Title">
         </div>
@@ -22,15 +22,44 @@
             <input type="text" class="form-control" placeholder="Date">
         </div>
     </div>
-
-<div class="row">
-  <div class="col-xs-8">
-    <textarea class="form-control" rows="8"></textarea>
-    <a class="btn btn-default" href="#" role="button">Edit</a>
-    <a class="btn btn-default" href="./d3.html" role="button">Create Cloud</a>
-</div>
-
-</div>
+    <div class="row" id="form">
+        <div class="col-xs-8">
+            <textarea class="form-control" rows="8"></textarea>
+            <a class="btn btn-default btn-lg" href="#" role="button">Edit</a>
+            <a class="btn btn-default btn-lg" href="./d3.html" role="button">Create Cloud</a>
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-xs-8">
+            <div class="panel panel-default">
+              <div class="panel-heading">Dream Journal</div>
+                <div class="panel-body">
+                  This Months Dreams
+                </div>
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Blue Water</h3>
+                </div>
+            <div class="panel-body">
+                Dreams about airplanes, like dreams about all modes of transportation, may be addressing the path you are on in life, how fast you are moving and how much you are in control of your life. Consider what the plane is doing, who you are and where you are on the plane for further insight.
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Little Blue Bunny</h3>
+            </div>
+            <div class="panel-body">
+              Elevators and escalators go up and down and so they may represent anything in waking life that rises and falls or goes up and down â€“ finances, emotions, promotions, etc. In general, the up and down motion of the elevator may represent the ups and downs of your life; or it may symbolize the emotions and thoughts emerging out of and submerging into your unconscious.
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Neela</h3>
+                </div>
+            <div class="panel-body">
+              Since we live in our house in waking life, your house in a dream usually represents you or your physical body (the dwelling of your soul).
+              It may represent your home life and family interactions.
+            </div>
+          </div>
 </body>
 
 </html>

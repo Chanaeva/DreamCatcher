@@ -7,7 +7,7 @@ else cloud(this.d3);
 
 function cloud(d3) {
   d3.layout.cloud = function cloud() {
-    var size = [1000, 800],
+    var size = [500, 500],
         text = cloudText,
         font = cloudFont,
         fontSize = cloudFontSize,
@@ -216,7 +216,7 @@ function cloud(d3) {
     while (++di < n) {
       d = data[di];
       c.save();
-      c.font = d.style + " " + d.weight + " " + ~~((d.size + 1) / ratio) + "px " + d.font;
+      c.font = d.style + " " + d.weight + " " + ~~((d.size + 60) / ratio) + "px " + d.font;
       var w = c.measureText(d.text + "m").width * ratio,
           h = d.size << 1;
       if (d.rotate) {

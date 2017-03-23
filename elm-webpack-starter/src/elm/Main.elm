@@ -3,10 +3,7 @@ module Main exposing (..)
 import Html exposing (program)
 import Html exposing (..)
 import Html.Attributes exposing (..)
-
-
--- import Html.Events exposing (onInput)
-
+import Html.Events exposing (onInput)
 import Ports exposing (listening, toggleStartStop)
 
 
@@ -72,39 +69,34 @@ viewTextInput text =
 
 viewNav : String -> Html Msg
 viewNav title =
-    header [ class "navbar-fixed-top" ]
+    header [ class "header" ]
         [ h1 [ class "text-center" ] [ text title ]
-        , ul [ class "ul" ]
+        , ul []
             [ ul [ attribute "role" "presentation" ]
                 [ a [ href "./static/signup.html" ]
-                    [ text "Create Dream Journal" ]
+                    [ text "Profile" ]
                 ]
             , ul [ attribute "role" "presentation" ]
-                [ a [ href "./static/signup.html" ]
-                    [ text "About DreamCatcher" ]
-                ]
-            , ul [ attribute "role" "presentation" ]
-                [ a [ href "./static/signup.html" ]
-                    [ text "Dream Psychology" ]
+                [ a [ href "./static/d3.html" ]
+                    [ text "WordCloud" ]
                 ]
             ]
         ]
 
 
-
--- viewFooter : Html Msg
--- viewFooter =
---     footer [ class "footer text-center" ]
---         [ a [ href "https://github.com/Chanaeva" ]
---             [ text "Created By Chana Reynolds" ]
---         ]
---
+viewFooter : Html Msg
+viewFooter =
+    footer [ class "footer text-center" ]
+        [ a [ href "https://github.com/Chanaeva" ]
+            [ text "Created By Chana Reynolds" ]
+        ]
 
 
 view : Model -> Html Msg
 view model =
     div []
-        [ viewNav ""
+        [ viewNav "DreamCatcher"
         , viewTextInput model.dream
+        , viewFooter
           -- , div [ class "debug" ] [ text (toString model) ]
         ]
