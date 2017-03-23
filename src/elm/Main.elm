@@ -60,7 +60,7 @@ update msg model =
 
 viewTextInput : String -> Html Msg
 viewTextInput text =
-    div [ class "text-center" ]
+    div [ class "text-center record" ]
         [ input
             [ type_ "textarea"
             , value text

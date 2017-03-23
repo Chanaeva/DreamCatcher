@@ -12,6 +12,25 @@ body {
     background-color: #000000;
 }
 
+.signup-container {
+  display: flex;
+  justify-content: space-around;
+  margin-right: 30em;
+}
+
+
+.form-container {
+    font-family: 'Amatic SC', cursive;
+    color: black;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-image: url(http://s1.picswalls.com/wallpapers/2014/07/19/dream-catcher-wallpaper_11122183_68.jpg);
+    background-color: #000000;
+    height: 55vh;
+    width: 40vw;
+    margin: 2em;
+}
+
 .profile-container {
     font-family: 'Amatic SC', cursive;
     background-color: #bcb89a;
@@ -62,9 +81,14 @@ header {
     color: white;
 }
 
+
+.record {
+font-size: 3em;
+
+}
 input {
-    font-size: 10px;
-    width: 40%;
+    font-size: 10em;
+    width: 45%;
     height: 120px;
 }
 
@@ -88,7 +112,7 @@ input {
 }
 
 #icon {
-    margin: 3em;
+    margin: 1em;
     width: 9vw;
     height: 20vh;
 }
@@ -103,6 +127,7 @@ input {
 
 textarea {
     margin: 1em;
+    font-size: 2em;
 }
 
 a {
