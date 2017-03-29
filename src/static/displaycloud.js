@@ -8,7 +8,6 @@ function getHostUrl() {
         return 'https://dreamshit.herokuapp.com'
     }
 }
-// only get dreams for the currently logged in dreamer
 
 $.get(`${API_URL}/api/dreamer/:id`).then(function(response) {
  console.log(response);

@@ -84,7 +84,7 @@ viewNav title =
                     [ text "About DreamCatcher" ]
                 ]
             , ul [ attribute "role" "presentation" ]
-                [ a [ href "./static/signup.html" ]
+                [ a [ href "./static/login.html" ]
                     [ text "Dream Psychology" ]
                 ]
             ]
@@ -98,7 +98,6 @@ viewNav title =
 --         [ a [ href "https://github.com/Chanaeva" ]
 --             [ text "Created By Chana Reynolds" ]
 --         ]
---
 
 
 view : Model -> Html Msg
@@ -106,5 +105,5 @@ view model =
     div []
         [ viewNav ""
         , viewTextInput model.dream
-          -- , div [ class "debug" ] [ text (toString model) ]
+          -- , viewFooter
         ]

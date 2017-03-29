@@ -29,18 +29,27 @@ function getHostUrl(){
 }
 
 function getDreamInfo(){
-  return $.get(`${API_URL}/api/dreamers`)
+  return $.get(`${API_URL}/api/dreamer/:id`)
 
 }
 
 $('#button').click(toggleStartStop);
+
+$('#signup-submit').click(function(){
+  console.log("signup hi");
+  //  var dream = $('input').val();
+  //  console.log(dream);
+  //   return $.post(`${API_URL}/api/dreamer/:id`, {dream: dream} ).then(function(){
+  //   window.location = "/static/d3.html#5"
+    })
+
 
 
   $('#save').click(function(){
     console.log("hello");
      var dream = $('input').val();
      console.log(dream);
-      return $.post(`${API_URL}/api/dreamer`, {dream: dream} ).then(function(){
+      return $.post(`${API_URL}/api/dreamer/:id`, {dream: dream} ).then(function(){
       window.location = "/static/d3.html#5"
       })
 
